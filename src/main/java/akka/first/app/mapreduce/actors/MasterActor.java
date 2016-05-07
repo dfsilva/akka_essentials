@@ -9,6 +9,7 @@ import akka.first.app.mapreduce.messages.ReduceData;
 import akka.first.app.mapreduce.messages.Result;
 import akka.japi.Creator;
 import akka.routing.RoundRobinPool;
+import scala.akka.first.app.mapreduce.actors.ReduceActor;
 
 /**
  * Created by 98379720172 on 06/05/2016.
@@ -18,7 +19,7 @@ public class MasterActor extends UntypedActor{
     private static final Creator mapActorCreator = new Creator<Actor>() {
         @Override
         public Actor create() throws Exception {
-            return new MapActor();
+            return new scala.akka.first.app.mapreduce.actors.MapActor();
         }
     };
 
