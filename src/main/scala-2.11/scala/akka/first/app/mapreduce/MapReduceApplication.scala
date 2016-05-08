@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit
 
 import akka.actor.{ActorSystem, Props}
 import akka.util.Timeout
+import akka.pattern.ask
 
 import scala.akka.first.app.mapreduce.actors.MasterActor
 import scala.collection.mutable.ArrayBuffer
@@ -20,7 +21,7 @@ case class MapData(dataList: ArrayBuffer[WordCount]) extends MapReduceMessage
 
 case class ReduceData(reduceDataMap: Map[String, Int]) extends MapReduceMessage
 
-case class Result extends MapReduceMessage
+case class Result() extends MapReduceMessage
 
 
 object MapReduceApplication extends App {
